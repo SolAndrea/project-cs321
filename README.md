@@ -2,7 +2,7 @@
 
 
 To run:
-- Install Kivy: `https://kivy.org/#download`
+- Install Kivy: https://kivy.org/#download
 - Download repo
 - Run on command line: python new2.py
   
