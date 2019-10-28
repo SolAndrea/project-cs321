@@ -2,6 +2,7 @@
 
 
 To run:
+- Ensure you have Python2.7 installed.
 - Install Kivy: https://kivy.org/#download
 - Download repo
 - Run on command line: python new2.py
