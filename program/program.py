@@ -19,8 +19,8 @@ for entry in data:
 	tempDict = tree.copy()
 	result = ""
 	while(isinstance(tempDict, dict)):
-		root = Node.Node(tempDict.keys()[0], tempDict[tempDict.keys()[0]])
-		tempDict = tempDict[tempDict.keys()[0]]
+		root = Node.Node(list(tempDict.keys())[0], tempDict[list(tempDict.keys())[0]])
+		tempDict = tempDict[list(tempDict.keys())[0]]
 		index = attributes.index(root.value)
 		value = entry[index]
 		if(value in tempDict.keys()):
@@ -28,8 +28,7 @@ for entry in data:
 			globalfile.resultRIPE = tempDict[value]
 			tempDict = tempDict[value]
 		else:
-			print "can't process input %s" % count
+			print ("can't process input %s" % count)
 			result = "?"
 			break
 	print ("entry%s = %s" % (count, globalfile.resultRIPE))
-	
