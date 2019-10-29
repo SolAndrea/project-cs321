@@ -19,7 +19,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 
 
-
+#uses the extracted colors from the picture to write the color data points to a file
 def get_str_rgb(colors):
 	colors = colors.split(",")
 	data = [0,0,0,0,0,0,0,0,0]
@@ -52,28 +52,29 @@ def get_str_rgb(colors):
 	with myFile:
 		writer = csv.writer(myFile)
 		writer.writerows(data)
-		
+
 def get_colors(self):
+	#bananas_test.jpg will be the user's input file in the future. TODO: must change later
 	filename = "bananas_test.jpg"
 	image_pil = Image.open(filename)
 	palette = extract_colors(image_pil)
 	""":type : colorific.palette.Palette"""
-		
-		
+
+
 	colors = ','.join(rgb_to_hex(c.value) for c in palette.colors)
 	print("colors: "+colors)
-		
-		
+
+	#feed the extracted colors
 	get_str_rgb(colors)
-		
+
 	#import main
 	import program
-	
+
 	self.label.text = "result: "+globalfile.resultRIPE
 	if palette.bgcolor:
 		print("Background: ", rgb_to_hex(palette.bgcolor.value))
-			
-			
+
+
 class BananasCla(GridLayout, Screen):
     def __init__(self, **kwargs):
         super(BananasCla, self).__init__(**kwargs)
@@ -92,6 +93,7 @@ class BananasCla(GridLayout, Screen):
         self.submit.bind(on_press=self.pressed)
         self.add_widget(self.submit)
 
+	#start the whole process
     def pressed(self, instance):
         get_colors(self)
 
@@ -103,22 +105,22 @@ class MainScreen(Screen):
 
 class Guide(Screen):
 	pass
-	
+
 class Classifier(Screen):
 	pass
-	
+
 class ScreenManagement(ScreenManager):
 	pass
-	
+
 presentation = Builder.load_file("main.kv")
-		
-		
+
+
 class MyApp(App):
 	def build(self):
 		return presentation
-			
-			
-			
-		
+
+
+
+
 if __name__ == "__main__":
 	MyApp().run()
