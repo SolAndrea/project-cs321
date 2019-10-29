@@ -1,6 +1,8 @@
 import subprocess
 import sys
 from PIL import Image
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 sys.path.append("program/colorificmaster/colorific")
 sys.path.append("program/colorificmaster")
 sys.path.append("")
@@ -64,7 +66,7 @@ def get_colors(self):
 		
 	get_str_rgb(colors)
 		
-	import main
+	#import main
 	import program
 	
 	self.label.text = "result: "+globalfile.resultRIPE
@@ -72,15 +74,15 @@ def get_colors(self):
 		print("Background: ", rgb_to_hex(palette.bgcolor.value))
 			
 			
-class MyGrid(GridLayout):
+class BananasCla(GridLayout, Screen):
     def __init__(self, **kwargs):
-        super(MyGrid, self).__init__(**kwargs)
+        super(BananasCla, self).__init__(**kwargs)
         self.cols = 1
 
         self.inside = GridLayout()
         self.inside.cols = 1
 
-        self.label=Label(text="CS 321 project: RIPE FRUITS")
+        self.label=Label(text="Bananas classifier")
         self.inside.add_widget(self.label)
 
 
@@ -93,10 +95,27 @@ class MyGrid(GridLayout):
     def pressed(self, instance):
         get_colors(self)
 
+class RedApplesCla(Screen):
+	pass
+
+class MainScreen(Screen):
+	pass
+
+class Guide(Screen):
+	pass
+	
+class Classifier(Screen):
+	pass
+	
+class ScreenManagement(ScreenManager):
+	pass
+	
+presentation = Builder.load_file("main.kv")
+		
 		
 class MyApp(App):
 	def build(self):
-		return MyGrid()
+		return presentation
 			
 			
 			
