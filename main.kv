@@ -12,18 +12,20 @@ ScreenManagement:
 	GridLayout:
         cols:1
         size: root.width, root.height
+
+        #to make the background white
         canvas.before:
-            # Color:
-            #     rgba: utils.get_color_from_hex('#f9f9f9')
             Rectangle:
                 pos: self.pos
                 size: self.size
 
         BoxLayout:
+            #overall layout of main page
             spacing: 20
             pos_hint: {'y': 0.5}
-            # rows:3
             orientation: 'vertical'
+
+            #adds the top bar
             Label:
                 text: "[b]Main CS321 Project:[/b] \nFruit Ripeness Classifier and Guide"
                 markup: True
@@ -42,7 +44,6 @@ ScreenManagement:
             Widget:
             Button:
 				on_release: app.root.current = 'classifier'
-                #background_color: utils.get_color_from_hex('#fa7e1e')
                 background_normal: './program/miscImages/buttonGreen.PNG'
                 background_down: './program/miscImages/buttonBlue.PNG'
 				text: '[b]Classify an image[/b]'
@@ -58,7 +59,6 @@ ScreenManagement:
             Widget:
 			Button:
 				on_release: app.root.current = 'guide'
-                # background_color: utils.get_color_from_hex('#66ff66')
                 background_normal: './program/miscImages/buttonRed.PNG'
                 background_down: './program/miscImages/buttonOrange.PNG'
 				text: '[b]Infographic[/b]'
@@ -71,6 +71,8 @@ ScreenManagement:
 
             #spacing for the elements on the page
             Widget:
+
+            #adds the bottom bar
             Label:
                 canvas.before:
                     Color:
@@ -80,7 +82,7 @@ ScreenManagement:
                         size: self.size
                 size_hint_y: None
                 height: 55
-                halign:"center"
+
 
 
 <Guide>:
@@ -97,21 +99,88 @@ ScreenManagement:
         cols:1
         size: root.width, root.height
 
-        GridLayout:
-            rows:3
+        #to make the background white
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+
+            #overall layout of main page
+            spacing: 20
+            pos_hint: {'y': 0.5}
+            orientation: 'vertical'
+
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#c70039')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                size_hint_y: None
+                height: 55
+                Button:
+                    background_color: 0, 0, 0, 0
+                    on_release: root.manager.current = 'main'
+                    y: self.parent.y + self.parent.height - 50
+                    x: self.parent.x
+                    size: 70, 50
+                    Image:
+                        source: './program/miscImages/arrow.png'
+                        y: self.parent.y + self.parent.height - 50
+                        x: self.parent.x
+                        size: 80, 50
+
+            #spacing for the elements on the page
+            Widget:
+
+			Button:
+				on_release: app.root.current = 'red_apples'
+
+                background_normal: './program/miscImages/buttonRed.PNG'
+                background_down: './program/miscImages/buttonOrange.PNG'
+				text: '[b]Classify a red apple image[/b]'
+                color: utils.get_color_from_hex('#ff0000')
+                markup: True
+				font_size: 20
+                pos_hint: {'center_x': .5}
+                size: (400, 100)
+                size_hint: (None, None)
+
+
+            #spacing for the elements on the page
+            Widget:
 
 			Button:
 				on_release: app.root.current = 'bananas'
-				text: 'classify a banana image'
-				font_size: 30
-			Button:
-				on_release: app.root.current = 'red_apples'
-				text: 'classify a red apple image'
-				font_size: 30
-			Button:
-				on_release: app.root.current = 'main'
-				text: 'back to the home screen'
-				font_size: 30
+
+                background_normal: './program/miscImages/buttonOrange.PNG'
+                background_down: './program/miscImages/buttonRed.PNG'
+				text: '[b]Classify a banana image[/b]'
+                color: utils.get_color_from_hex('#ff6600')
+                markup: True
+				font_size: 20
+                pos_hint: {'center_x': .5}
+                size: (400, 100)
+                size_hint: (None, None)
+
+
+
+            #spacing for the elements on the page
+            Widget:
+
+            #this adds the bottom bar
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#c70039')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                size_hint_y: None
+                height: 55
 
 <BananasCla>:
 	name: 'bananas'
