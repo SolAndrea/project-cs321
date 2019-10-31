@@ -1,5 +1,4 @@
-
-
+#:import utils kivy.utils
 
 ScreenManagement:
     MainScreen:
@@ -7,32 +6,83 @@ ScreenManagement:
 	BananasCla:
 	RedApplesCla:
 	Classifier:
-	
+
 <MainScreen>:
     name: 'main'
 	GridLayout:
         cols:1
         size: root.width, root.height
+        canvas.before:
+            # Color:
+            #     rgba: utils.get_color_from_hex('#f9f9f9')
+            Rectangle:
+                pos: self.pos
+                size: self.size
 
-        GridLayout:
-            rows:3
-
+        BoxLayout:
+            spacing: 20
+            pos_hint: {'y': 0.5}
+            # rows:3
+            orientation: 'vertical'
             Label:
-                text: "Main CS321 Project: \nFuit Ripeness Classifier and Guide"
-				font_size: 40
-				
+                text: "[b]Main CS321 Project:[/b] \nFruit Ripeness Classifier and Guide"
+                markup: True
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#c70039')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+				font_size: 20
+                size_hint_y: None
+                height: 55
+                halign:"center"
+
+            #spacing for the elements on the page
+            Widget:
             Button:
 				on_release: app.root.current = 'classifier'
-				text: 'Classify an image'
+                #background_color: utils.get_color_from_hex('#fa7e1e')
+                background_normal: './program/miscImages/buttonGreen.PNG'
+                background_down: './program/miscImages/buttonBlue.PNG'
+				text: '[b]Classify an image[/b]'
+                color: utils.get_color_from_hex('#2d862d')
+                markup: True
 				font_size: 30
-			
+                pos_hint: {'center_x': .5}
+                size: (400, 100)
+                size_hint: (None, None)
+
+
+            #spacing for the elements on the page
+            Widget:
 			Button:
 				on_release: app.root.current = 'guide'
-				text: 'Go to guide'
+                # background_color: utils.get_color_from_hex('#66ff66')
+                background_normal: './program/miscImages/buttonRed.PNG'
+                background_down: './program/miscImages/buttonOrange.PNG'
+				text: '[b]Infographic[/b]'
+                color: utils.get_color_from_hex('#ff0000')
+                markup: True
 				font_size: 30
+                pos_hint: {'center_x': .5}
+                size: (400, 100)
+                size_hint: (None, None)
+
+            #spacing for the elements on the page
+            Widget:
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#c70039')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                size_hint_y: None
+                height: 55
+                halign:"center"
 
 
-            
 <Guide>:
     name: 'guide'
 
@@ -40,7 +90,7 @@ ScreenManagement:
         on_release: app.root.current = 'main'
         text: 'back to the home screen'
         font_size: 50
-		
+
 <Classifier>:
 	name: 'classifier'
 	GridLayout:
@@ -49,7 +99,7 @@ ScreenManagement:
 
         GridLayout:
             rows:3
-			
+
 			Button:
 				on_release: app.root.current = 'bananas'
 				text: 'classify a banana image'
@@ -62,14 +112,14 @@ ScreenManagement:
 				on_release: app.root.current = 'main'
 				text: 'back to the home screen'
 				font_size: 30
-				
+
 <BananasCla>:
 	name: 'bananas'
 	Button:
         on_release: app.root.current = 'main'
         text: 'back to the home screen'
         font_size: 50
-		
+
 <RedApplesCla>:
 	name: 'red_apples'
 	Button:
