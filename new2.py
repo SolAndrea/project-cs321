@@ -7,6 +7,7 @@ sys.path.append("program/colorificmaster/colorific")
 sys.path.append("program/colorificmaster")
 sys.path.append("")
 sys.path.append("program")
+
 import csv
 from palette import *
 from config import *
@@ -14,13 +15,14 @@ import kivy
 from kivy.app import App
 from kivy.uix.label import Label
 import globalfile
+globalfile.init()
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 
 
 #uses the extracted colors from the picture to write the color data points to a file
-def get_str_rgb(colors):
+def get_str_rgb(colors, file):
 	colors = colors.split(",")
 	data = [0,0,0,0,0,0,0,0,0]
 	ind = 0
@@ -48,14 +50,16 @@ def get_str_rgb(colors):
 		ctr = ctr + 1
 	print(data)
 	data = [data]
-	myFile = open('bananas.csv', 'w')
+	#myFile = open('bananas.csv', 'w')
+	myFile = open(file, 'w')
 	with myFile:
 		writer = csv.writer(myFile)
 		writer.writerows(data)
 
-def get_colors(self):
+def get_colors(self, image, file, program):
 	#bananas_test.jpg will be the user's input file in the future. TODO: must change later
-	filename = "bananas_test.jpg"
+	#filename = "bananas_test.jpg"
+	filename = image
 	image_pil = Image.open(filename)
 	palette = extract_colors(image_pil)
 	""":type : colorific.palette.Palette"""
@@ -65,12 +69,19 @@ def get_colors(self):
 	print("colors: "+colors)
 
 	#feed the extracted colors
-	get_str_rgb(colors)
+	get_str_rgb(colors, file)
 
 	#import main
-	import program
+	#main.main()
+	
+	if(program == 1):
+		import programBananas
+		programBananas.main()
+	if(program == 2):
+		import programTomatoes
+		programTomatoes.main()
 
-	self.label.text = "result: "+globalfile.resultRIPE
+	self.label.text = "result: "+ globalfile.resultRIPE
 	if palette.bgcolor:
 		print("Background: ", rgb_to_hex(palette.bgcolor.value))
 
@@ -95,10 +106,30 @@ class BananasCla(GridLayout, Screen):
 
 	#start the whole process
     def pressed(self, instance):
-        get_colors(self)
+        get_colors(self, "bananas_test.jpg", 'bananas.csv', 1)
 
-class RedApplesCla(Screen):
-	pass
+
+class TomatoesCla(GridLayout, Screen):
+    def __init__(self, **kwargs):
+        super(TomatoesCla, self).__init__(**kwargs)
+        self.cols = 1
+
+        self.inside = GridLayout()
+        self.inside.cols = 1
+
+        self.label=Label(text="Tomatoes classifier")
+        self.inside.add_widget(self.label)
+
+
+        self.add_widget(self.inside)
+
+        self.submit = Button(text="Submit", font_size=40)
+        self.submit.bind(on_press=self.pressed)
+        self.add_widget(self.submit)
+
+	#start the whole process
+    def pressed(self, instance):
+        get_colors(self, "tomatoes_test.jpg", 'Tomatoes.csv', 2)
 
 class MainScreen(Screen):
 	pass
