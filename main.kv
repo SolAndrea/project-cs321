@@ -1,11 +1,8 @@
-
-
-
 ScreenManagement:
     MainScreen:
     Guide:
 	BananasCla:
-	RedApplesCla:
+	TomatoesCla:
 	Classifier:
 	
 <MainScreen>:
@@ -55,8 +52,8 @@ ScreenManagement:
 				text: 'classify a banana image'
 				font_size: 30
 			Button:
-				on_release: app.root.current = 'red_apples'
-				text: 'classify a red apple image'
+				on_release: app.root.current = 'tomatoes'
+				text: 'classify a tomato image'
 				font_size: 30
 			Button:
 				on_release: app.root.current = 'main'
@@ -70,8 +67,8 @@ ScreenManagement:
         text: 'back to the home screen'
         font_size: 50
 		
-<RedApplesCla>:
-	name: 'red_apples'
+<TomatoesCla>:
+	name: 'tomatoes'
 	Button:
         on_release: app.root.current = 'main'
         text: 'back to the home screen'
