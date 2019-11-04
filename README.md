@@ -2,7 +2,6 @@
 
 
 To run:
-- Ensure you have Python2.7 installed.
 - Install Pillow: https://pypi.org/project/Pillow/6.2.0/
 - Install Kivy: https://kivy.org/#download
 - Download repo
