@@ -4,7 +4,7 @@ ScreenManagement:
 	BananasCla:
 	TomatoesCla:
 	Classifier:
-	
+
 <MainScreen>:
     name: 'main'
 	GridLayout:
@@ -17,27 +17,44 @@ ScreenManagement:
             Label:
                 text: "Main CS321 Project: \nFuit Ripeness Classifier and Guide"
 				font_size: 40
-				
+
             Button:
 				on_release: app.root.current = 'classifier'
 				text: 'Classify an image'
 				font_size: 30
-			
+
 			Button:
 				on_release: app.root.current = 'guide'
 				text: 'Go to guide'
 				font_size: 30
 
 
-            
+
 <Guide>:
     name: 'guide'
 
-    Button:
-        on_release: app.root.current = 'main'
-        text: 'back to the home screen'
-        font_size: 50
-		
+
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Bananas are fruits. They have many many seeds.'
+        Image:
+            source: 'tomatoes_test.jpg'
+        Label:
+            text: 'These are not bananas'
+            sized_hint_x: None
+            size: self.texture_size
+            pos_hint: {'right': 1}
+        Label:
+            text: 'These are bananas.'
+        Image:
+            source: 'bananas_test.jpg'
+
+        Button:
+            on_release: app.root.current = 'main'
+            text: 'Back'
+            font_size: 24
+
 <Classifier>:
 	name: 'classifier'
 	GridLayout:
@@ -46,7 +63,7 @@ ScreenManagement:
 
         GridLayout:
             rows:3
-			
+
 			Button:
 				on_release: app.root.current = 'bananas'
 				text: 'classify a banana image'
@@ -59,14 +76,14 @@ ScreenManagement:
 				on_release: app.root.current = 'main'
 				text: 'back to the home screen'
 				font_size: 30
-				
+
 <BananasCla>:
 	name: 'bananas'
 	Button:
         on_release: app.root.current = 'main'
         text: 'back to the home screen'
         font_size: 50
-		
+
 <TomatoesCla>:
 	name: 'tomatoes'
 	Button:
