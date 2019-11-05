@@ -4,7 +4,7 @@ ScreenManagement:
     MainScreen:
     Guide:
 	BananasCla:
-	RedApplesCla:
+	TomatoesCla:
 	Classifier:
 
 <MainScreen>:
@@ -153,7 +153,12 @@ ScreenManagement:
             #spacing for the elements on the page
             Widget:
 
-			Button:
+            Button:
+                on_release: app.root.current = 'tomatoes'
+				text: 'classify a tomato image'
+				font_size: 30
+
+            Button:
 				on_release: app.root.current = 'bananas'
 
                 background_normal: './program/miscImages/buttonOrange.PNG'
@@ -258,6 +263,14 @@ ScreenManagement:
     #                     size: self.size
     #             size_hint_y: None
     #             height: 55
+
+
+<TomatoesCla>:
+	name: 'tomatoes'
+    Button:
+        on_release: app.root.current = 'main'
+        text: 'back to the home screen'
+        font_size: 50
 
 <RedApplesCla>:
 	name: 'red_apples'
