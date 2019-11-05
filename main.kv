@@ -133,21 +133,6 @@ ScreenManagement:
                         x: self.parent.x
                         size: 80, 50
 
-            #spacing for the elements on the page
-            Widget:
-
-			Button:
-				on_release: app.root.current = 'red_apples'
-
-                background_normal: './program/miscImages/buttonRed.PNG'
-                background_down: './program/miscImages/buttonOrange.PNG'
-				text: '[b]Classify a red apple image[/b]'
-                color: utils.get_color_from_hex('#ff0000')
-                markup: True
-				font_size: 20
-                pos_hint: {'center_x': .5}
-                size: (400, 100)
-                size_hint: (None, None)
 
 
             #spacing for the elements on the page
@@ -155,8 +140,15 @@ ScreenManagement:
 
             Button:
                 on_release: app.root.current = 'tomatoes'
-				text: 'classify a tomato image'
-				font_size: 30
+				text: '[b]Classify a tomato image[/b]'
+                background_normal: './program/miscImages/buttonRed.PNG'
+                background_down: './program/miscImages/buttonOrange.PNG'
+                color: utils.get_color_from_hex('#ff0000')
+                markup: True
+				font_size: 20
+                pos_hint: {'center_x': .5}
+                size: (400, 100)
+                size_hint: (None, None)
 
             Button:
 				on_release: app.root.current = 'bananas'
@@ -195,6 +187,7 @@ ScreenManagement:
         text: 'back to the home screen'
         font_size: 50
 
+    # Doesn't work yet. Leave in place until it works
 	# GridLayout:
     #     cols:1
     #     size: root.width, root.height
@@ -268,13 +261,6 @@ ScreenManagement:
 <TomatoesCla>:
 	name: 'tomatoes'
     Button:
-        on_release: app.root.current = 'main'
-        text: 'back to the home screen'
-        font_size: 50
-
-<RedApplesCla>:
-	name: 'red_apples'
-	Button:
         on_release: app.root.current = 'main'
         text: 'back to the home screen'
         font_size: 50
