@@ -17,8 +17,10 @@ from kivy.uix.label import Label
 import globalfile
 globalfile.init()
 from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
+from kivy.properties import StringProperty
 
 
 #uses the extracted colors from the picture to write the color data points to a file
@@ -73,7 +75,7 @@ def get_colors(self, image, file, program):
 
 	#import main
 	#main.main()
-	
+
 	if(program == 1):
 		import programBananas
 		programBananas.main()
@@ -81,55 +83,49 @@ def get_colors(self, image, file, program):
 		import programTomatoes
 		programTomatoes.main()
 
-	self.label.text = "result: "+ globalfile.resultRIPE
+
+	self.outputText = "result: "+ globalfile.resultRIPE
+
+
 	if palette.bgcolor:
 		print("Background: ", rgb_to_hex(palette.bgcolor.value))
 
 
+
+
+
 class BananasCla(GridLayout, Screen):
+    outputText = StringProperty()
+
     def __init__(self, **kwargs):
         super(BananasCla, self).__init__(**kwargs)
-        self.cols = 1
+        self.outputText = "result: No Result"
 
-        self.inside = GridLayout()
-        self.inside.cols = 1
-
-        self.label=Label(text="Bananas classifier")
-        self.inside.add_widget(self.label)
-
-
-        self.add_widget(self.inside)
-
-        self.submit = Button(text="Submit", font_size=40)
-        self.submit.bind(on_press=self.pressed)
-        self.add_widget(self.submit)
 
 	#start the whole process
     def pressed(self, instance):
-        get_colors(self, "bananas_test.jpg", 'bananas.csv', 1)
+        result = get_colors(self, "bananas_test.jpg", 'bananas.csv', 1)
+        for key, val in self.ids.items():
+            if (val == 'innerBoxLayout'):
+               self.outputText = str(result)
+
 
 
 class TomatoesCla(GridLayout, Screen):
+    outputText = StringProperty()
+
     def __init__(self, **kwargs):
         super(TomatoesCla, self).__init__(**kwargs)
-        self.cols = 1
-
-        self.inside = GridLayout()
-        self.inside.cols = 1
-
-        self.label=Label(text="Tomatoes classifier")
-        self.inside.add_widget(self.label)
-
-
-        self.add_widget(self.inside)
-
-        self.submit = Button(text="Submit", font_size=40)
-        self.submit.bind(on_press=self.pressed)
-        self.add_widget(self.submit)
+        self.outputText = "result: No Result"
 
 	#start the whole process
     def pressed(self, instance):
-        get_colors(self, "tomatoes_test.jpg", 'Tomatoes.csv', 2)
+        result = get_colors(self, "tomatoes_test.jpg", 'Tomatoes.csv', 2)
+        for key, val in self.ids.items():
+            if (val == 'innerBoxLayout'):
+                self.outputText = str(result)
+
+
 
 class MainScreen(Screen):
 	pass
