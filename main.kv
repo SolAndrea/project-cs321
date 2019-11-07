@@ -2,10 +2,15 @@
 
 ScreenManagement:
     MainScreen:
+        id: "main"
     Guide:
+        id: "guide"
 	BananasCla:
+        id: 'bananas'
 	TomatoesCla:
+        id: 'tomatoes'
 	Classifier:
+        id: "classifier"
 
 <MainScreen>:
     name: 'main'
@@ -182,85 +187,172 @@ ScreenManagement:
 <BananasCla>:
 	name: 'bananas'
 
-    Button:
-        on_release: app.root.current = 'main'
-        text: 'back to the home screen'
-        font_size: 50
+	GridLayout:
+        cols:1
+        size: root.width, root.height
+        id: submissionLayout
 
-    # Doesn't work yet. Leave in place until it works
-	# GridLayout:
-    #     cols:1
-    #     size: root.width, root.height
-    #
-    #     #to make the background white
-    #     canvas.before:
-    #         Rectangle:
-    #             pos: self.pos
-    #             size: self.size
-    #
-    #     BoxLayout:
-    #         #overall layout of main page
-    #         spacing: 20
-    #         pos_hint: {'y': 0.5}
-    #         orientation: 'vertical'
-    #
-    #         #adds the top bar
-    #         Label:
-    #             canvas.before:
-    #                 Color:
-    #                     rgba: utils.get_color_from_hex('#c70039')
-    #                 Rectangle:
-    #                     pos: self.pos
-    #                     size: self.size
-    #             size_hint_y: None
-    #             height: 55
-    #             Button:
-    #                 background_color: 0, 0, 0, 0
-    #                 on_release: root.manager.current = 'main'
-    #                 y: self.parent.y + self.parent.height - 50
-    #                 x: self.parent.x
-    #                 size: 70, 50
-    #                 Image:
-    #                     source: './program/miscImages/arrow.png'
-    #                     y: self.parent.y + self.parent.height - 50
-    #                     x: self.parent.x
-    #                     size: 80, 50
-    #
-    #         #spacing for the elements on the page
-    #         Widget:
-    #
-    #     	Button:
-    #             id:"submission"
-    #             # on_release: app.root.current = 'main'
-    #             text: '[b]Submit[/b]'
-    #             font_size: 50
-    #             background_normal: './program/miscImages/buttonRed.PNG'
-    #             background_down: './program/miscImages/buttonOrange.PNG'
-    #             color: utils.get_color_from_hex('#ff0000')
-    #             markup: True
-	# 			font_size: 20
-    #             pos_hint: {'center_x': .5}
-    #             size: (400, 100)
-    #             size_hint: (None, None)
-    #
-    #         #spacing for the elements on the page
-    #         Widget:
-    #
-    #         #this adds the bottom bar
-    #         Label:
-    #             canvas.before:
-    #                 Color:
-    #                     rgba: utils.get_color_from_hex('#c70039')
-    #                 Rectangle:
-    #                     pos: self.pos
-    #                     size: self.size
-    #             size_hint_y: None
-    #             height: 55
+        #to make the background white
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            #overall layout of main page
+            id: innerBoxLayout
+            spacing: 20
+            pos_hint: {'y': 0.5}
+            orientation: 'vertical'
+
+            #adds the top bar
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#c70039')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                size_hint_y: None
+                height: 55
+                Button:
+                    background_color: 0, 0, 0, 0
+                    on_release: root.manager.current = 'main'
+                    y: self.parent.y + self.parent.height - 50
+                    x: self.parent.x
+                    size: 70, 50
+                    Image:
+                        source: './program/miscImages/arrow.png'
+                        y: self.parent.y + self.parent.height - 50
+                        x: self.parent.x
+                        size: 80, 50
+
+            #spacing for the elements on the page
+            Widget:
+
+            Label:
+                id: output
+                font_size: 50
+                text: root.outputText
+                color: utils.get_color_from_hex('#ff0000')
+
+            #spacing for the elements on the page
+            Widget:
+
+        	Button:
+                id:submission
+                on_press: root.pressed(self)
+                text: '[b]Submit[/b]'
+                font_size: 50
+                background_normal: './program/miscImages/buttonRed.PNG'
+                background_down: './program/miscImages/buttonOrange.PNG'
+                color: utils.get_color_from_hex('#ff0000')
+                markup: True
+				font_size: 20
+                pos_hint: {'center_x': .5}
+                size: (400, 100)
+                size_hint: (None, None)
+
+            #spacing for the elements on the page
+            Widget:
+
+            #this adds the bottom bar
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#c70039')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                size_hint_y: None
+                height: 55
+
 
 
 <TomatoesCla>:
 	name: 'tomatoes'
-    Button:
-        on_release: app.root.current = 'main'
-        text: 'back to the home screen'
-        font_size: 50
+    # Button:
+    #     on_release: app.root.current = 'main'
+    #     text: 'back to the home screen'
+    #     font_size: 50
+
+
+	GridLayout:
+        cols:1
+        size: root.width, root.height
+        id: submissionLayout
+
+        #to make the background white
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            #overall layout of main page
+            id: innerBoxLayout
+            spacing: 20
+            pos_hint: {'y': 0.5}
+            orientation: 'vertical'
+
+            #adds the top bar
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#c70039')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                size_hint_y: None
+                height: 55
+                Button:
+                    background_color: 0, 0, 0, 0
+                    on_release: root.manager.current = 'main'
+                    y: self.parent.y + self.parent.height - 50
+                    x: self.parent.x
+                    size: 70, 50
+                    Image:
+                        source: './program/miscImages/arrow.png'
+                        y: self.parent.y + self.parent.height - 50
+                        x: self.parent.x
+                        size: 80, 50
+
+            #spacing for the elements on the page
+            Widget:
+
+            Label:
+                id: output
+                font_size: 50
+                text: root.outputText
+                color: utils.get_color_from_hex('#ff0000')
+
+            #spacing for the elements on the page
+            Widget:
+
+        	Button:
+                id:submission
+                on_press: root.pressed(self)
+                text: '[b]Submit[/b]'
+                font_size: 50
+                background_normal: './program/miscImages/buttonRed.PNG'
+                background_down: './program/miscImages/buttonOrange.PNG'
+                color: utils.get_color_from_hex('#ff0000')
+                markup: True
+				font_size: 20
+                pos_hint: {'center_x': .5}
+                size: (400, 100)
+                size_hint: (None, None)
+
+            #spacing for the elements on the page
+            Widget:
+
+            #this adds the bottom bar
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#c70039')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                size_hint_y: None
+                height: 55
