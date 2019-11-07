@@ -90,13 +90,31 @@ ScreenManagement:
 
 
 
+
 <Guide>:
     name: 'guide'
 
-    Button:
-        on_release: app.root.current = 'main'
-        text: 'back to the home screen'
-        font_size: 50
+
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Bananas are fruits. They have many many seeds.'
+        Image:
+            source: 'tomatoes_test.jpg'
+        Label:
+            text: 'These are not bananas'
+            sized_hint_x: None
+            size: self.texture_size
+            pos_hint: {'right': 1}
+        Label:
+            text: 'These are bananas.'
+        Image:
+            source: 'bananas_test.jpg'
+
+        Button:
+            on_release: app.root.current = 'main'
+            text: 'Back'
+            font_size: 24
 
 <Classifier>:
 	name: 'classifier'
