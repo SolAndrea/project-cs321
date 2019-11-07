@@ -94,27 +94,91 @@ ScreenManagement:
 <Guide>:
     name: 'guide'
 
+	GridLayout:
+        cols:1
+        size: root.width, root.height
 
-    BoxLayout:
-        orientation: 'vertical'
-        Label:
-            text: 'Bananas are fruits. They have many many seeds.'
-        Image:
-            source: 'tomatoes_test.jpg'
-        Label:
-            text: 'These are not bananas'
-            sized_hint_x: None
-            size: self.texture_size
-            pos_hint: {'right': 1}
-        Label:
-            text: 'These are bananas.'
-        Image:
-            source: 'bananas_test.jpg'
+        #to make the background white
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
 
-        Button:
-            on_release: app.root.current = 'main'
-            text: 'Back'
-            font_size: 24
+        BoxLayout:
+            #overall layout of main page
+            id: innerBoxLayout
+            spacing: 20
+            pos_hint: {'y': 0.5}
+            orientation: 'vertical'
+
+            #adds the top bar
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#c70039')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                size_hint_y: None
+                height: 55
+                Button:
+                    background_color: 0, 0, 0, 0
+                    on_release: root.manager.current = 'main'
+                    y: self.parent.y + self.parent.height - 50
+                    x: self.parent.x
+                    size: 70, 50
+                    Image:
+                        source: './program/miscImages/arrow.png'
+                        y: self.parent.y + self.parent.height - 50
+                        x: self.parent.x
+                        size: 80, 50
+
+            #spacing for the elements on the page
+            Widget:
+
+
+
+        # BoxLayout:
+        #     orientation: 'vertical'
+            Label:
+                text: 'Bananas are fruits. They have many many seeds.'
+                color:(0,0,0,0.8)
+            Image:
+                source: 'tomatoes_test.jpg'
+                size: (400, 150)
+                size_hint: (None, None)
+                pos_hint: {'center_x': .5}
+            Label:
+                text: 'These are not bananas'
+                sized_hint_x: None
+                size: self.texture_size
+                pos_hint: {'right': 1}
+                color:(0,0,0,0.8)
+            Label:
+                text: 'These are bananas.'
+            Image:
+                source: 'bananas_test.jpg'
+                size: (400, 150)
+                size_hint: (None, None)
+                pos_hint: {'center_x': .5}
+
+
+            #spacing for the elements on the page
+            Widget:
+
+            #this adds the bottom bar
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex('#c70039')
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                size_hint_y: None
+                height: 55
+
+
+
 
 <Classifier>:
 	name: 'classifier'
@@ -289,11 +353,6 @@ ScreenManagement:
 
 <TomatoesCla>:
 	name: 'tomatoes'
-    # Button:
-    #     on_release: app.root.current = 'main'
-    #     text: 'back to the home screen'
-    #     font_size: 50
-
 
 	GridLayout:
         cols:1
