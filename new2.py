@@ -86,6 +86,7 @@ def get_colors(self, image, file, program):
 		import programAvocados
 		programAvocados.main()
 
+	#Outputs result to label on the UI
 	self.outputText = "result: "+ globalfile.resultRIPE
 
 
@@ -128,26 +129,17 @@ class TomatoesCla(GridLayout, Screen):
                 self.outputText = str(result)
 
 class AvocadosCla(GridLayout, Screen):
+    outputText = StringProperty()
     def __init__(self, **kwargs):
         super(AvocadosCla, self).__init__(**kwargs)
-        self.cols = 1
-
-        self.inside = GridLayout()
-        self.inside.cols = 1
-
-        self.label=Label(text="Avocados classifier")
-        self.inside.add_widget(self.label)
-
-
-        self.add_widget(self.inside)
-
-        self.submit = Button(text="Submit", font_size=40)
-        self.submit.bind(on_press=self.pressed)
-        self.add_widget(self.submit)
+        self.outputText = "result: No Result"
 
 	#start the whole process
     def pressed(self, instance):
-        get_colors(self, "avocados_test.jpg", 'Avocados.csv', 3)
+        result = get_colors(self, "avocados_test.jpg", 'Avocados.csv', 3)
+        for key, val in self.ids.items():
+            if (val == 'innerBoxLayout'):
+                self.outputText = str(result)
 
 
 class MainScreen(Screen):
