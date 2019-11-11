@@ -82,7 +82,9 @@ def get_colors(self, image, file, program):
 	if(program == 2):
 		import programTomatoes
 		programTomatoes.main()
-
+	if(program == 3):
+		import programAvocados
+		programAvocados.main()
 
 	self.outputText = "result: "+ globalfile.resultRIPE
 
@@ -125,6 +127,27 @@ class TomatoesCla(GridLayout, Screen):
             if (val == 'innerBoxLayout'):
                 self.outputText = str(result)
 
+class AvocadosCla(GridLayout, Screen):
+    def __init__(self, **kwargs):
+        super(AvocadosCla, self).__init__(**kwargs)
+        self.cols = 1
+
+        self.inside = GridLayout()
+        self.inside.cols = 1
+
+        self.label=Label(text="Avocados classifier")
+        self.inside.add_widget(self.label)
+
+
+        self.add_widget(self.inside)
+
+        self.submit = Button(text="Submit", font_size=40)
+        self.submit.bind(on_press=self.pressed)
+        self.add_widget(self.submit)
+
+	#start the whole process
+    def pressed(self, instance):
+        get_colors(self, "avocados_test.jpg", 'Avocados.csv', 3)
 
 
 class MainScreen(Screen):
