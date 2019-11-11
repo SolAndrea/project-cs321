@@ -5,8 +5,9 @@ def main():
     """
     IMPORTANT: Change this file path to change training data 
     """
-    file = open('BananasTraining.csv')
+    #file = open('BananasTraining.csv')
     #file = open('TomatoesTraining.csv')
+    file = open('AvocadosTraining.csv')
     """
     IMPORTANT: Change this variable too change target attribute 
     """
@@ -22,8 +23,11 @@ def main():
     tree = DecisionTree.makeTree(data, attributes, target, 0)
     print( "generated decision tree")
     #Generate program
-    file = open('programBananas.py', 'w')
+	
+    #file = open('programBananas.py', 'w')
     #file = open('programTomatoes.py', 'w')
+    file = open('programAvocados.py', 'w')
+	
     file.write("import Node\n")
     file.write("import kivy\n")
     file.write("from kivy.app import App\n")
@@ -36,8 +40,11 @@ def main():
     """
     IMPORTANT: Change this file path to change testing data 
     """
-    file.write("\tf = open('bananas.csv')\n")
+	
+    #file.write("\tf = open('bananas.csv')\n")
     #file.write("\tf = open('Tomatoes.csv')\n")
+    file.write("\tf = open('Avocados.csv')\n")
+	
     #gather data
     file.write("\tfor line in f:\n\t\tline = line.strip(\"\\r\\n\")\n\t\tdata.append(line.split(','))\n")
     file.write("\tdata.remove([])\n")
@@ -64,7 +71,7 @@ def main():
     file.write("\t\t\t\ttempDict = tempDict[value]\n")
     #otherwise, break
     file.write("\t\t\telse:\n")
-    file.write("\t\t\t\tprint \"can't process input %s\" % count\n")
+    file.write("\t\t\t\tprint( \"can't process input %s\" % (count))\n")
     file.write("\t\t\t\tresult = \"?\"\n")
     file.write("\t\t\t\tbreak\n")
     #print solutions 
