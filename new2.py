@@ -29,7 +29,7 @@ def get_str_rgb(colors, file):
 	data = [0,0,0,0,0,0,0,0,0]
 	ind = 0
 	ctr = 0
-	while ctr < 3:
+	while (ctr < 3 and ctr < len(colors)):
 		hexcolor = colors[ctr].lstrip('#')
 		rgbcolor = tuple(int(hexcolor[i:i+2], 16) for i in (0, 2, 4))
 		ctr2 = 0
