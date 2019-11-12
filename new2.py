@@ -23,6 +23,7 @@ from palette import *
 from config import *
 import kivy
 from kivy.app import App
+from kivy.utils import platform
 from kivy.uix.label import Label
 import globalfile
 globalfile.init()
@@ -36,8 +37,9 @@ root = tk.Tk()
 root.withdraw()
 
 def open_file():
-	root.filename = tkFileDialog.askopenfilename(initialdir = os.getcwd(), title="Select file", filetypes = (("jpeg files", "*.jpg"), ("png files", "*.png"), ("All files", "*")))
-	return root.filename
+	if (platform != 'android' and platform != 'ios'):
+		root.filename = tkFileDialog.askopenfilename(initialdir = os.getcwd(), title="Select file", filetypes = (("jpeg files", "*.jpg"), ("png files", "*.png"), ("All files", "*")))
+		return root.filename
 
 #uses the extracted colors from the picture to write the color data points to a file
 def get_str_rgb(colors, file):
