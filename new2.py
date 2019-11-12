@@ -1,5 +1,8 @@
 import subprocess
 import sys
+import tkinter as tk
+import tkinter.filedialog as tkFileDialog
+import os
 from PIL import Image
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
@@ -22,6 +25,12 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.properties import StringProperty
 
+root = tk.Tk()
+root.withdraw()
+
+def open_file():
+	root.filename = tkFileDialog.askopenfilename(initialdir = os.getcwd(), title="Select file", filetypes = (("jpeg files", "*.jpg"), ("png files", "*.png"), ("All files", "*")))
+	return root.filename
 
 #uses the extracted colors from the picture to write the color data points to a file
 def get_str_rgb(colors, file):
@@ -107,10 +116,17 @@ class BananasCla(GridLayout, Screen):
 
 	#start the whole process
     def pressed(self, instance):
-        result = get_colors(self, "bananas_test.jpg", 'bananas.csv', 1)
+        file = open_file()
+		#old input parameter: "bananas_test.jpg"
+        try:
+            result = get_colors(self, file, 'bananas.csv', 1)
+        except AttributeError:
+            self.outputText = "result: No Result"
+            self.manager.current = "main"
+
         for key, val in self.ids.items():
             if (val == 'innerBoxLayout'):
-               self.outputText = str(result)
+                self.outputText = str(result)
 
 
 
