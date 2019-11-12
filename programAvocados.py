@@ -19,8 +19,8 @@ def main():
 		tempDict = tree.copy()
 		result = ""
 		while(isinstance(tempDict, dict)):
-			root = Node.Node(tempDict.keys()[0], tempDict[tempDict.keys()[0]])
-			tempDict = tempDict[tempDict.keys()[0]]
+			root = Node.Node(list(tempDict.keys())[0], tempDict[list(tempDict.keys())[0]])
+			tempDict = tempDict[list(tempDict.keys())[0]]
 			index = attributes.index(root.value)
 			value = entry[index]
 			if(value in tempDict.keys()):
