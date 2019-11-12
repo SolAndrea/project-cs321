@@ -37,8 +37,10 @@ root = tk.Tk()
 root.withdraw()
 
 def open_file():
+	#detects the platform the user is on to determine how to handle getting a picture
 	if (platform != 'android' and platform != 'ios'):
-		root.filename = tkFileDialog.askopenfilename(initialdir = os.getcwd(), title="Select file", filetypes = (("jpeg files", "*.jpg"), ("png files", "*.png"), ("All files", "*")))
+		#opens the windows explorer at the current directory and only accepts the filetypes: jpg and png files. It returns the root reference to the selected file
+		root.filename = tkFileDialog.askopenfilename(initialdir = os.getcwd(), title="Select file", filetypes = (("jpeg files", "*.jpg"), ("png files", "*.png")))
 		return root.filename
 
 #uses the extracted colors from the picture to write the color data points to a file
@@ -127,12 +129,14 @@ class BananasCla(GridLayout, Screen):
     def pressed(self, instance):
         file = open_file()
 		#old input parameter: "bananas_test.jpg"
+		#a try catch block to handle if the user didn't submit a picture after open_file() runs
         try:
             result = get_colors(self, file, 'bananas.csv', 1)
         except AttributeError:
             self.outputText = "result: No Result"
             self.manager.current = "main"
 
+		#looks through the widget items' ids and finds the parent widget of the target label to change the text of
         for key, val in self.ids.items():
             if (val == 'innerBoxLayout'):
                 self.outputText = str(result)
@@ -148,7 +152,16 @@ class TomatoesCla(GridLayout, Screen):
 
 	#start the whole process
     def pressed(self, instance):
-        result = get_colors(self, "tomatoes_test.jpg", 'Tomatoes.csv', 2)
+        file = open_file()
+		#old input parameter: "tomatoes_test.jpg"
+		#a try catch block to handle if the user didn't submit a picture after open_file() runs
+        try:
+            result = get_colors(self, file, 'Tomatoes.csv', 2)
+        except AttributeError:
+            self.outputText = "result: No Result"
+            self.manager.current = "main"
+
+		#looks through the widget items' ids and finds the parent widget of the target label to change the text of
         for key, val in self.ids.items():
             if (val == 'innerBoxLayout'):
                 self.outputText = str(result)
@@ -161,7 +174,16 @@ class AvocadosCla(GridLayout, Screen):
 
 	#start the whole process
     def pressed(self, instance):
-        result = get_colors(self, "avocados_test.jpg", 'Avocados.csv', 3)
+        file = open_file()
+		#old input parameter: "avocados_test.jpg"
+		#a try catch block to handle if the user didn't submit a picture after open_file() runs
+        try:
+            result = get_colors(self, file, 'Avocados.csv', 3)
+        except AttributeError:
+            self.outputText = "result: No Result"
+            self.manager.current = "main"
+
+		#looks through the widget items' ids and finds the parent widget of the target label to change the text of
         for key, val in self.ids.items():
             if (val == 'innerBoxLayout'):
                 self.outputText = str(result)
