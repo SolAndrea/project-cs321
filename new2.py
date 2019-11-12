@@ -1,7 +1,14 @@
 import subprocess
 import sys
-import tkinter as tk
-import tkinter.filedialog as tkFileDialog
+
+#for handling imports differently between python versions
+#try is python3 and except is earlier than python3
+try:
+	import tkinter as tk
+	import tkinter.filedialog as tkFileDialog
+except ImportError:
+	import Tkinter as tk
+	import tkFileDialog
 import os
 from PIL import Image
 from kivy.lang import Builder
