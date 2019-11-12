@@ -115,8 +115,6 @@ def get_colors(self, image, file, program):
 
 
 
-
-
 class BananasCla(GridLayout, Screen):
     outputText = StringProperty()
 
@@ -141,6 +139,9 @@ class BananasCla(GridLayout, Screen):
             if (val == 'innerBoxLayout'):
                 self.outputText = str(result)
 
+	#reset the result label's text to the default when the back button is clicked
+    def backButton(self, instance):
+        self.outputText = "result: No Result"
 
 
 class TomatoesCla(GridLayout, Screen):
@@ -166,6 +167,11 @@ class TomatoesCla(GridLayout, Screen):
             if (val == 'innerBoxLayout'):
                 self.outputText = str(result)
 
+	#reset the result label's text to the default when the back button is clicked
+    def backButton(self, instance):
+        self.outputText = "result: No Result"
+
+
 class AvocadosCla(GridLayout, Screen):
     outputText = StringProperty()
     def __init__(self, **kwargs):
@@ -187,6 +193,10 @@ class AvocadosCla(GridLayout, Screen):
         for key, val in self.ids.items():
             if (val == 'innerBoxLayout'):
                 self.outputText = str(result)
+
+	#reset the result label's text to the default when the back button is clicked
+    def backButton(self, instance):
+        self.outputText = "result: No Result"
 
 
 class MainScreen(Screen):
