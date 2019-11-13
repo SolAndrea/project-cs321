@@ -143,26 +143,119 @@ ScreenManagement:
         # BoxLayout:
         #     orientation: 'vertical'
             Label:
-                text: 'Bananas are fruits. They have many many seeds.'
+                text: 'This helpful guide will assist in identifying the ripenss of fruit.'
                 color:(0,0,0,0.8)
-            Image:
-                source: 'tomatoes_test.jpg'
-                size: (400, 150)
-                size_hint: (None, None)
-                pos_hint: {'center_x': .5}
+
             Label:
-                text: 'These are not bananas'
-                sized_hint_x: None
-                size: self.texture_size
-                pos_hint: {'right': 1}
+                text: 'Tomatoes'
                 color:(0,0,0,0.8)
+            #A fruit comparasion with nested box layouts (Tomatoes)
+            BoxLayout:
+                orientation: 'horizontal'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Image:
+                        source: 'tomatoes_test.jpg'
+                        size: (400, 150)
+                        #size_hint: (None, None)
+                        #pos_hint: {'center_x': .5}
+                    Label:
+                        text: 'Not Ripe'
+                        color:(0,0,0,0.8)
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Image:
+                        source: 'tomatoes_test.jpg'
+                        size: (400, 150)
+                        #size_hint: (None, None)
+                        #pos_hint: {'center_x': .5}
+                    Label:
+                        text: 'Ripe'
+                        color:(0,0,0,0.8)
+
             Label:
-                text: 'These are bananas.'
-            Image:
-                source: 'bananas_test.jpg'
-                size: (400, 150)
-                size_hint: (None, None)
-                pos_hint: {'center_x': .5}
+                text: 'Bananas'
+                color:(0,0,0,0.8)
+            #A fruit comparasion with nested box layouts (Banana)
+            BoxLayout:
+                orientation: 'horizontal'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Image:
+                        source: 'bananas_test.jpg'
+                        size: (400, 150)
+                        #size_hint: (None, None)
+                        #pos_hint: {'center_x': .5}
+                    Label:
+                        text: 'Not Ripe'
+                        color:(0,0,0,0.8)
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Image:
+                        source: 'bananas_test.jpg'
+                        size: (400, 150)
+                        #size_hint: (None, None)
+                        #pos_hint: {'center_x': .5}
+                    Label:
+                        text: 'Ripe'
+                        color:(0,0,0,0.8)
+
+            Label:
+                text: 'Avocados'
+                color:(0,0,0,0.8)
+            #A fruit comparasion with nested box layouts (Avocados)
+            BoxLayout:
+                orientation: 'horizontal'
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Image:
+                        source: 'avocados_test.jpg'
+                        size: (400, 150)
+                        #size_hint: (None, None)
+                        #pos_hint: {'center_x': .5}
+                    Label:
+                        text: 'Not Ripe'
+                        color:(0,0,0,0.8)
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Image:
+                        source: 'avocados_test.jpg'
+                        size: (400, 150)
+                        #size_hint: (None, None)
+                        #pos_hint: {'center_x': .5}
+                    Label:
+                        text: 'Ripe'
+                        color:(0,0,0,0.8)
+
+
+
+
+
+            #Label:
+            #    text: 'These are not bananas'
+            #    sized_hint_x: None
+            #    size: self.texture_size
+            #    pos_hint: {'right': 1}
+            #    color:(0,0,0,0.8)
+            #Label:
+            #    text: 'These are bananas.'
+            #Image:
+            #    source: 'bananas_test.jpg'
+            #    size: (400, 150)
+            #    size_hint: (None, None)
+            #    pos_hint: {'center_x': .5}
 
 
             #spacing for the elements on the page
