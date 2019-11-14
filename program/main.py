@@ -7,7 +7,9 @@ def main():
     """
     #file = open('BananasTraining.csv')
     #file = open('TomatoesTraining.csv')
-    file = open('AvocadosTraining.csv')
+    #file = open('AvocadosTraining.csv')
+    file = open('StrawberryTraining.csv')
+	
     """
     IMPORTANT: Change this variable too change target attribute 
     """
@@ -26,7 +28,8 @@ def main():
 	
     #file = open('programBananas.py', 'w')
     #file = open('programTomatoes.py', 'w')
-    file = open('programAvocados.py', 'w')
+    #file = open('programAvocados.py', 'w')
+    file = open('programStrawberry.py', 'w')
 	
     file.write("import Node\n")
     file.write("import kivy\n")
@@ -43,7 +46,8 @@ def main():
 	
     #file.write("\tf = open('bananas.csv')\n")
     #file.write("\tf = open('Tomatoes.csv')\n")
-    file.write("\tf = open('Avocados.csv')\n")
+    #file.write("\tf = open('Avocados.csv')\n")
+    file.write("\tf = open('Strawberrys.csv')\n")
 	
     #gather data
     file.write("\tfor line in f:\n\t\tline = line.strip(\"\\r\\n\")\n\t\tdata.append(line.split(','))\n")
