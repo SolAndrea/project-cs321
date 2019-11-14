@@ -12,7 +12,7 @@ ScreenManagement:
 	AvocadosCla:
     	id: 'avocados'
 	StrawberrysCla:
-    	id: 'strawberry'
+		id: "strawberry"
 	Classifier:
         id: "classifier"
 
@@ -380,19 +380,19 @@ ScreenManagement:
                 pos_hint: {'center_x': .5}
                 size: (400, 100)
                 size_hint: (None, None)
-	    Button:
+
+            Button:
             	on_release: app.root.current = 'strawberry'
 
                 background_normal: './program/miscImages/buttonGreen.PNG'
                 background_down: './program/miscImages/buttonBlue.PNG'
             	text: '[b]Classify a strawberry image[/b]'
-                color: utils.get_color_from_hex('#d40f43')
+                color: utils.get_color_from_hex('#fa1134')
                 markup: True
             	font_size: 20
                 pos_hint: {'center_x': .5}
                 size: (400, 100)
                 size_hint: (None, None)
-
 
 
             #spacing for the elements on the page
@@ -663,7 +663,6 @@ ScreenManagement:
                 size_hint_y: None
                 height: 55
 
-
 <StrawberrysCla>:
 	name: 'strawberry'
 
@@ -697,6 +696,7 @@ ScreenManagement:
                 height: 55
                 Button:
                     background_color: 0, 0, 0, 0
+                    on_press: root.backButton(self)
                     on_release: root.manager.current = 'main'
                     y: self.parent.y + self.parent.height - 50
                     x: self.parent.x
