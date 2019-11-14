@@ -105,6 +105,9 @@ def get_colors(self, image, file, program):
 	if(program == 3):
 		import programAvocados
 		programAvocados.main()
+	if(program == 4):
+		import programStrawberry
+		programStrawberry.main()
 
 	#Outputs result to label on the UI
 	self.outputText = "result: "+ globalfile.resultRIPE
@@ -185,6 +188,32 @@ class AvocadosCla(GridLayout, Screen):
 		#a try catch block to handle if the user didn't submit a picture after open_file() runs
         try:
             result = get_colors(self, file, 'Avocados.csv', 3)
+        except AttributeError:
+            self.outputText = "result: No Result"
+            self.manager.current = "main"
+
+		#looks through the widget items' ids and finds the parent widget of the target label to change the text of
+        for key, val in self.ids.items():
+            if (val == 'innerBoxLayout'):
+                self.outputText = str(result)
+
+	#reset the result label's text to the default when the back button is clicked
+    def backButton(self, instance):
+        self.outputText = "result: No Result"
+	
+class StrawberrysCla(GridLayout, Screen):
+    outputText = StringProperty()
+    def __init__(self, **kwargs):
+        super(StrawberrysCla, self).__init__(**kwargs)
+        self.outputText = "result: No Result"
+
+	#start the whole process
+    def pressed(self, instance):
+        file = open_file()
+		#old input parameter: "strawberry_test.jpg"
+		#a try catch block to handle if the user didn't submit a picture after open_file() runs
+        try:
+            result = get_colors(self, file, 'Strawberrys.csv', 4)
         except AttributeError:
             self.outputText = "result: No Result"
             self.manager.current = "main"
