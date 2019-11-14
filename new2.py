@@ -1,5 +1,15 @@
 import subprocess
 import sys
+
+#for handling imports differently between python versions
+#try is python3 and except is earlier than python3
+try:
+	import tkinter as tk
+	import tkinter.filedialog as tkFileDialog
+except ImportError:
+	import Tkinter as tk
+	import tkFileDialog
+import os
 from PIL import Image
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
@@ -13,6 +23,7 @@ from palette import *
 from config import *
 import kivy
 from kivy.app import App
+from kivy.utils import platform
 from kivy.uix.label import Label
 import globalfile
 globalfile.init()
@@ -22,6 +33,15 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.properties import StringProperty
 
+root = tk.Tk()
+root.withdraw()
+
+def open_file():
+	#detects the platform the user is on to determine how to handle getting a picture
+	if (platform != 'android' and platform != 'ios'):
+		#opens the windows explorer at the current directory and only accepts the filetypes: jpg and png files. It returns the root reference to the selected file
+		root.filename = tkFileDialog.askopenfilename(initialdir = os.getcwd(), title="Select file", filetypes = (("jpeg files", "*.jpg"), ("png files", "*.png")))
+		return root.filename
 
 #uses the extracted colors from the picture to write the color data points to a file
 def get_str_rgb(colors, file):
@@ -95,8 +115,6 @@ def get_colors(self, image, file, program):
 
 
 
-
-
 class BananasCla(GridLayout, Screen):
     outputText = StringProperty()
 
@@ -107,11 +125,23 @@ class BananasCla(GridLayout, Screen):
 
 	#start the whole process
     def pressed(self, instance):
-        result = get_colors(self, "bananas_test.jpg", 'bananas.csv', 1)
+        file = open_file()
+		#old input parameter: "bananas_test.jpg"
+		#a try catch block to handle if the user didn't submit a picture after open_file() runs
+        try:
+            result = get_colors(self, file, 'bananas.csv', 1)
+        except AttributeError:
+            self.outputText = "result: No Result"
+            self.manager.current = "main"
+
+		#looks through the widget items' ids and finds the parent widget of the target label to change the text of
         for key, val in self.ids.items():
             if (val == 'innerBoxLayout'):
-               self.outputText = str(result)
+                self.outputText = str(result)
 
+	#reset the result label's text to the default when the back button is clicked
+    def backButton(self, instance):
+        self.outputText = "result: No Result"
 
 
 class TomatoesCla(GridLayout, Screen):
@@ -123,10 +153,24 @@ class TomatoesCla(GridLayout, Screen):
 
 	#start the whole process
     def pressed(self, instance):
-        result = get_colors(self, "tomatoes_test.jpg", 'Tomatoes.csv', 2)
+        file = open_file()
+		#old input parameter: "tomatoes_test.jpg"
+		#a try catch block to handle if the user didn't submit a picture after open_file() runs
+        try:
+            result = get_colors(self, file, 'Tomatoes.csv', 2)
+        except AttributeError:
+            self.outputText = "result: No Result"
+            self.manager.current = "main"
+
+		#looks through the widget items' ids and finds the parent widget of the target label to change the text of
         for key, val in self.ids.items():
             if (val == 'innerBoxLayout'):
                 self.outputText = str(result)
+
+	#reset the result label's text to the default when the back button is clicked
+    def backButton(self, instance):
+        self.outputText = "result: No Result"
+
 
 class AvocadosCla(GridLayout, Screen):
     outputText = StringProperty()
@@ -136,10 +180,23 @@ class AvocadosCla(GridLayout, Screen):
 
 	#start the whole process
     def pressed(self, instance):
-        result = get_colors(self, "avocados_test.jpg", 'Avocados.csv', 3)
+        file = open_file()
+		#old input parameter: "avocados_test.jpg"
+		#a try catch block to handle if the user didn't submit a picture after open_file() runs
+        try:
+            result = get_colors(self, file, 'Avocados.csv', 3)
+        except AttributeError:
+            self.outputText = "result: No Result"
+            self.manager.current = "main"
+
+		#looks through the widget items' ids and finds the parent widget of the target label to change the text of
         for key, val in self.ids.items():
             if (val == 'innerBoxLayout'):
                 self.outputText = str(result)
+
+	#reset the result label's text to the default when the back button is clicked
+    def backButton(self, instance):
+        self.outputText = "result: No Result"
 
 
 class MainScreen(Screen):
