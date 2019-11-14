@@ -598,6 +598,7 @@ ScreenManagement:
                 height: 55
                 Button:
                     background_color: 0, 0, 0, 0
+                    on_press: root.backButton(self)
                     on_release: root.manager.current = 'main'
                     y: self.parent.y + self.parent.height - 50
                     x: self.parent.x
