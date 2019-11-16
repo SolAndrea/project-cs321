@@ -148,11 +148,11 @@ ScreenManagement:
                 GridLayout:
                     size_hint_y: None
                     cols: 1
-                    row_default_height: '50dp'
+                    row_default_height: '60dp'
                     row_force_default: True
                     height: self.minimum_height
 
-                    Widget:
+                    # Widget:
 
 
 
@@ -176,7 +176,7 @@ ScreenManagement:
                             pos_hint: {'y': 0.3}
 
                             Image:
-                                source: 'tomatoes_test.jpg'
+                                source: 'tomatoes_nonRipe_test.jpg'
                                 keep_ratio: True
                                 size: (150, 150)
                                 size_hint: (None, None)
@@ -203,10 +203,26 @@ ScreenManagement:
                                 color:(0,0,0,0.8)
                     Label:
                         valign: 'center'
+                        halign: 'center'
                         text: 'When not yet ripe, tomatoes are a bright green color.\nOver time, they turn bright red.\nAn ripe tomato will be slightly soft to the touch.'
                         color:(0,0,0,0.8)
 
+
+
                     Widget:
+                        canvas:
+                            Color:
+                                rgba: utils.get_color_from_hex('#e6e6e6')
+                            Line:
+                                width:2
+                                points: [200, self.y, 600, self.y]
+
+
+                    Widget:
+                        height: 4
+                        spacing: 1, 1
+                        padding: 1, 1
+
 
                     Label:
                         text: 'Bananas'
@@ -222,7 +238,7 @@ ScreenManagement:
                             pos_hint: {'y': 0.3}
 
                             Image:
-                                source: 'bananas_test.jpg'
+                                source: 'bananas_nonRipe_test.jpg'
                                 keep_ratio: True
                                 size: (150, 150)
                                 size_hint: (None, None)
@@ -245,9 +261,25 @@ ScreenManagement:
                                 color:(0,0,0,0.8)
                     Label:
                         valign: 'center'
+                        halign: 'center'
                         text: 'When not yet ripe, banana are a dull green color.\nA ripe banana is a bright yellow color.\nAn overripe banana grows brown colored spots until it is completely brown.'
                         color:(0,0,0,0.8)
 
+
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: utils.get_color_from_hex('#e6e6e6')
+                            Line:
+                                width:2
+                                points: [200, self.y, 600, self.y]
+
+
+                    Widget:
+                        height: 1
+                        spacing: 0, 0
+                        padding: 0, 0
+                        size_hint: (None, None)
 
 
                     Label:
@@ -262,7 +294,7 @@ ScreenManagement:
                             orientation: 'vertical'
 
                             Image:
-                                source: 'avocados_test.jpg'
+                                source: 'avocados_nonRipe_test.jpg'
                                 keep_ratio: True
                                 size: (100, 100)
                                 size_hint: (None, None)
@@ -278,7 +310,7 @@ ScreenManagement:
                             orientation: 'vertical'
 
                             Image:
-                                source: 'avocados_test.jpg'
+                                source: 'avocados_ripe_test.jpg'
                                 keep_ratio: True
                                 size: (100, 100)
                                 pos_hint: {'center_x': .5}
@@ -297,21 +329,27 @@ ScreenManagement:
 
                     Label:
                         valign: 'center'
+                        halign: 'center'
                         text: 'When not yet ripe, avocados are green.\nOver time, they darken in color.\nAn ripe avocado will be a dark green color and be slightly soft to the touch.'
                         color:(0,0,0,0.8)
 
 
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: utils.get_color_from_hex('#e6e6e6')
+                            Line:
+                                width:2
+                                points: [200, self.y, 600, self.y]
 
 
                     Widget:
-                        height: 3
-                        size_hint_y: None
-                        spacing: 0, 0
-                        padding: 0, 0
-
+                        height: 4
+                        spacing: 1, 1
+                        padding: 1, 1
 
                     Label:
-                        text: 'Strawberrys'
+                        text: 'Strawberries'
                         font_size: 20
                         color:(0,0,0,0.8)
 
@@ -324,7 +362,7 @@ ScreenManagement:
                             pos_hint: {'y': 0.3}
 
                             Image:
-                                source: 'strawberry_test.jpg'
+                                source: 'strawberry_nonRipe_test.jpg'
                                 keep_ratio: True
                                 size: (150, 150)
                                 size_hint: (None, None)
@@ -351,17 +389,12 @@ ScreenManagement:
                                 color:(0,0,0,0.8)
                     Label:
                         valign: 'center'
-                        text: 'When not yet ripe, strawberries are a bright green color.\nOver time, they turn bright red.\nAn ripe strawberry will be slightly firm to the touch.'
+                        halign: 'center'
+                        text: 'When not yet ripe, strawberries are a bright green color.\nOver time, they turn bright red.\nA ripe strawberry will be slightly firm to the touch.'
                         color:(0,0,0,0.8)
 
 
 
-
-                    Widget:
-                        height: 2
-                        size_hint_y: None
-                        spacing: 0, 0
-                        padding: 0, 0
 
                     Widget:
                         height: 2
@@ -545,6 +578,7 @@ ScreenManagement:
             Label:
                 id: output
                 font_size: 50
+                halign: "center"
                 text: root.outputText
                 color: utils.get_color_from_hex('#ff0000')
 
@@ -631,6 +665,7 @@ ScreenManagement:
             Label:
                 id: output
                 font_size: 50
+                halign: "center"
                 text: root.outputText
                 color: utils.get_color_from_hex('#ff0000')
 
@@ -715,6 +750,7 @@ ScreenManagement:
             Label:
                 id: output
                 font_size: 50
+                halign: "center"
                 text: root.outputText
                 color: utils.get_color_from_hex('#ff0000')
 
@@ -799,6 +835,7 @@ ScreenManagement:
             Label:
                 id: output
                 font_size: 50
+                halign: "center"
                 text: root.outputText
                 color: utils.get_color_from_hex('#ff0000')
 
