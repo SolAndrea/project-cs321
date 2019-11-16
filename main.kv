@@ -326,7 +326,6 @@ ScreenManagement:
                 height: 55
                 Button:
                     background_color: 0, 0, 0, 0
-                    on_press: root.backButton(self)
                     on_release: root.manager.current = 'main'
                     y: self.parent.y + self.parent.height - 50
                     x: self.parent.x
@@ -383,11 +382,10 @@ ScreenManagement:
 
             Button:
             	on_release: app.root.current = 'strawberry'
-
-                background_normal: './program/miscImages/buttonGreen.PNG'
-                background_down: './program/miscImages/buttonBlue.PNG'
-            	text: '[b]Classify a strawberry image[/b]'
-                color: utils.get_color_from_hex('#fa1134')
+                background_normal: './program/miscImages/buttonRed.PNG'
+                background_down: './program/miscImages/buttonOrange.PNG'
+                color: utils.get_color_from_hex('#ff0000')
+            	text: '[b]  Classify a strawberry image[/b]'
                 markup: True
             	font_size: 20
                 pos_hint: {'center_x': .5}
