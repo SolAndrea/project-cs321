@@ -300,6 +300,63 @@ ScreenManagement:
                         text: 'When not yet ripe, avocados are green.\nOver time, they darken in color.\nAn ripe avocado will be a dark green color and be slightly soft to the touch.'
                         color:(0,0,0,0.8)
 
+
+
+
+                    Widget:
+                        height: 3
+                        size_hint_y: None
+                        spacing: 0, 0
+                        padding: 0, 0
+
+
+                    Label:
+                        text: 'Strawberrys'
+                        font_size: 20
+                        color:(0,0,0,0.8)
+
+                    #A fruit comparasion with nested box layouts (Tomatoes)
+                    BoxLayout:
+                        orientation: 'horizontal'
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: 'strawberry_test.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+
+                            Widget:
+
+                            Label:
+                                text: 'Not Ripe'
+                                color:(0,0,0,0.8)
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: 'strawberry_test.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+                            Label:
+                                text: 'Ripe'
+                                color:(0,0,0,0.8)
+                    Label:
+                        valign: 'center'
+                        text: 'When not yet ripe, strawberries are a bright green color.\nOver time, they turn bright red.\nAn ripe strawberry will be slightly firm to the touch.'
+                        color:(0,0,0,0.8)
+
+
+
+
                     Widget:
                         height: 2
                         size_hint_y: None
