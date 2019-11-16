@@ -111,7 +111,6 @@ ScreenManagement:
         BoxLayout:
             #overall layout of main page
             id: innerBoxLayout
-            spacing: 20
             pos_hint: {'y': 0.5}
             orientation: 'vertical'
 
@@ -137,161 +136,283 @@ ScreenManagement:
                         x: self.parent.x
                         size: 80, 50
 
-            #spacing for the elements on the page
-            Widget:
+
+            ScrollView:
+                size: self.size
+                do_scroll_y: True
+                do_scroll_x: False
+                bar_width: 6
 
 
 
-        # BoxLayout:
-        #     orientation: 'vertical'
-            Label:
-                text: 'This helpful guide will assist in identifying the ripenss of fruit.'
-                color:(0,0,0,0.8)
+                GridLayout:
+                    size_hint_y: None
+                    cols: 1
+                    row_default_height: '60dp'
+                    row_force_default: True
+                    height: self.minimum_height
 
-            Label:
-                text: 'Tomatoes'
-                font_size: 20
-                color:(0,0,0,0.8)
-            #A fruit comparasion with nested box layouts (Tomatoes)
-            BoxLayout:
-                orientation: 'horizontal'
+                    # Widget:
 
-                BoxLayout:
-                    orientation: 'vertical'
 
-                    Image:
-                        source: 'tomatoes_test.jpg'
-                        size: (400, 150)
-                        #size_hint: (100, 100)
-                        pos_hint: {'center_x': .5}
+
+                    Label:
+                        text: 'This helpful guide will assist in identifying the ripenss of fruit.'
+                        color:(0,0,0,0.8)
+
                     Widget:
-                    #space
+
                     Label:
-                        text: 'Not Ripe'
+                        text: 'Tomatoes'
+                        font_size: 20
                         color:(0,0,0,0.8)
 
-                BoxLayout:
-                    orientation: 'vertical'
+                    #A fruit comparasion with nested box layouts (Tomatoes)
+                    BoxLayout:
+                        orientation: 'horizontal'
 
-                    Image:
-                        source: 'tomatoes_test.jpg'
-                        size: (400, 150)
-                        size_hint: (.5, .5)
-                        pos_hint: {'center_x': .5}
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: 'tomatoes_nonRipe_test.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+
+                            Widget:
+
+                            Label:
+                                text: 'Not Ripe'
+                                color:(0,0,0,0.8)
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: 'tomatoes_test.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+                            Label:
+                                text: 'Ripe'
+                                color:(0,0,0,0.8)
                     Label:
-                        text: 'Ripe'
-                        color:(0,0,0,0.8)
-            Label:
-                valign: 'center'
-                text: 'When not yet ripe, tomatoes are a bright green color.\nOver time, they turn bright red.\nAn ripe tomato will be slightly soft to the touch.'
-                color:(0,0,0,0.8)
-
-
-            Label:
-                text: 'Bananas'
-                color:(0,0,0,0.8)
-                font_size: 20
-
-            #A fruit comparasion with nested box layouts (Banana)
-            BoxLayout:
-                orientation: 'horizontal'
-
-                BoxLayout:
-                    orientation: 'vertical'
-
-                    Image:
-                        source: 'bananas_test.jpg'
-                        size: (400, 150)
-                        #size_hint: (None, None)
-                        #pos_hint: {'center_x': .5}
-                    Label:
-                        text: 'Not Ripe'
-                        color:(0,0,0,0.8)
-
-                BoxLayout:
-                    orientation: 'vertical'
-
-                    Image:
-                        source: 'bananas_test.jpg'
-                        size: (400, 150)
-                        #size_hint: (None, None)
-                        #pos_hint: {'center_x': .5}
-                    Label:
-                        text: 'Ripe'
-                        color:(0,0,0,0.8)
-            Label:
-                valign: 'center'
-                text: 'When not yet ripe, banana are a dull green color.\nA ripe banana is a bright yellow color.\nAn overripe banana grows brown colored spots until it is completely brown.'
-                color:(0,0,0,0.8)
-
-            Label:
-                text: 'Avocados'
-                color:(0,0,0,0.8)
-                font_size: 20
-            #A fruit comparasion with nested box layouts (Avocados)
-            BoxLayout:
-                orientation: 'horizontal'
-
-                BoxLayout:
-                    orientation: 'vertical'
-
-                    Image:
-                        source: 'avocados_test.jpg'
-                        size: (400, 150)
-                        #size_hint: (None, None)
-                        #pos_hint: {'center_x': .5}
-                    Label:
-                        text: 'Not Ripe'
+                        valign: 'center'
+                        halign: 'center'
+                        text: 'When not yet ripe, tomatoes are a bright green color.\nOver time, they turn bright red.\nAn ripe tomato will be slightly soft to the touch.'
                         color:(0,0,0,0.8)
 
-                BoxLayout:
-                    orientation: 'vertical'
 
-                    Image:
-                        source: 'avocados_test.jpg'
-                        size: (400, 150)
-                        #size_hint: (None, None)
-                        #pos_hint: {'center_x': .5}
+
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: utils.get_color_from_hex('#e6e6e6')
+                            Line:
+                                width:2
+                                points: [200, self.y, 600, self.y]
+
+
+                    Widget:
+                        height: 4
+                        spacing: 1, 1
+                        padding: 1, 1
+
+
                     Label:
-                        text: 'Ripe'
+                        text: 'Bananas'
                         color:(0,0,0,0.8)
-            Label:
-                valign: 'center'
-                text: 'When not yet ripe, avocados are green.\nOver time, they darken in color.\nAn ripe avocado will be a dark green color and be slightly soft to the touch.'
-                color:(0,0,0,0.8)
+                        font_size: 20
+
+                    #A fruit comparasion with nested box layouts (Banana)
+                    BoxLayout:
+                        orientation: 'horizontal'
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: 'bananas_nonRipe_test.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+                            Label:
+                                text: 'Not Ripe'
+                                color:(0,0,0,0.8)
+
+                        BoxLayout:
+                            orientation: 'vertical'
+
+                            Image:
+                                source: 'bananas_test.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                pos_hint: {'center_x': .5}
+                                size_hint: (None, None)
+                            Label:
+                                text: 'Ripe'
+                                color:(0,0,0,0.8)
+                    Label:
+                        valign: 'center'
+                        halign: 'center'
+                        text: 'When not yet ripe, banana are a dull green color.\nA ripe banana is a bright yellow color.\nAn overripe banana grows brown colored spots until it is completely brown.'
+                        color:(0,0,0,0.8)
+
+
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: utils.get_color_from_hex('#e6e6e6')
+                            Line:
+                                width:2
+                                points: [200, self.y, 600, self.y]
+
+
+                    Widget:
+                        height: 1
+                        spacing: 0, 0
+                        padding: 0, 0
+                        size_hint: (None, None)
+
+
+                    Label:
+                        text: 'Avocados'
+                        color:(0,0,0,0.8)
+                        font_size: 20
+                    #A fruit comparasion with nested box layouts (Avocados)
+                    BoxLayout:
+                        orientation: 'horizontal'
+
+                        BoxLayout:
+                            orientation: 'vertical'
+
+                            Image:
+                                source: 'avocados_nonRipe_test.jpg'
+                                keep_ratio: True
+                                size: (100, 100)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+                            Widget:
+                            Label:
+                                text: '\n\nNot Ripe'
+                                markup: True
+                                color:(0,0,0,0.8)
+                                pos_hint: {'y': 2}
+
+                        BoxLayout:
+                            orientation: 'vertical'
+
+                            Image:
+                                source: 'avocados_ripe_test.jpg'
+                                keep_ratio: True
+                                size: (100, 100)
+                                pos_hint: {'center_x': .5}
+                                size_hint: (None, None)
+                            Widget:
+                            Label:
+                                text: '\n\nRipe'
+                                markup: True
+                                color:(0,0,0,0.8)
+
+                    Widget:
+                        height: 2
+                        size_hint_y: None
+                        spacing: 0, 0
+                        padding: 0, 0
+
+                    Label:
+                        valign: 'center'
+                        halign: 'center'
+                        text: 'When not yet ripe, avocados are green.\nOver time, they darken in color.\nAn ripe avocado will be a dark green color and be slightly soft to the touch.'
+                        color:(0,0,0,0.8)
+
+
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: utils.get_color_from_hex('#e6e6e6')
+                            Line:
+                                width:2
+                                points: [200, self.y, 600, self.y]
+
+
+                    Widget:
+                        height: 4
+                        spacing: 1, 1
+                        padding: 1, 1
+
+                    Label:
+                        text: 'Strawberries'
+                        font_size: 20
+                        color:(0,0,0,0.8)
+
+                    #A fruit comparasion with nested box layouts (Tomatoes)
+                    BoxLayout:
+                        orientation: 'horizontal'
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: 'strawberry_nonRipe_test.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+
+                            Widget:
+
+                            Label:
+                                text: 'Not Ripe'
+                                color:(0,0,0,0.8)
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: 'strawberry_test.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+                            Label:
+                                text: 'Ripe'
+                                color:(0,0,0,0.8)
+                    Label:
+                        valign: 'center'
+                        halign: 'center'
+                        text: 'When not yet ripe, strawberries are a bright green color.\nOver time, they turn bright red.\nA ripe strawberry will be slightly firm to the touch.'
+                        color:(0,0,0,0.8)
 
 
 
 
-
-            #Label:
-            #    text: 'These are not bananas'
-            #    sized_hint_x: None
-            #    size: self.texture_size
-            #    pos_hint: {'right': 1}
-            #    color:(0,0,0,0.8)
-            #Label:
-            #    text: 'These are bananas.'
-            #Image:
-            #    source: 'bananas_test.jpg'
-            #    size: (400, 150)
-            #    size_hint: (None, None)
-            #    pos_hint: {'center_x': .5}
+                    Widget:
+                        height: 2
+                        size_hint_y: None
+                        spacing: 0, 0
+                        padding: 0, 0
 
 
-            #spacing for the elements on the page
-            Widget:
-
-            #this adds the bottom bar
-            Label:
-                canvas.before:
-                    Color:
-                        rgba: utils.get_color_from_hex('#c70039')
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                size_hint_y: None
-                height: 55
+        #this adds the bottom bar
+        Label:
+            canvas.before:
+                Color:
+                    rgba: utils.get_color_from_hex('#c70039')
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            size_hint_y: None
+            height: 55
 
 
 
@@ -457,6 +578,7 @@ ScreenManagement:
             Label:
                 id: output
                 font_size: 50
+                halign: "center"
                 text: root.outputText
                 color: utils.get_color_from_hex('#ff0000')
 
@@ -543,6 +665,7 @@ ScreenManagement:
             Label:
                 id: output
                 font_size: 50
+                halign: "center"
                 text: root.outputText
                 color: utils.get_color_from_hex('#ff0000')
 
@@ -627,6 +750,7 @@ ScreenManagement:
             Label:
                 id: output
                 font_size: 50
+                halign: "center"
                 text: root.outputText
                 color: utils.get_color_from_hex('#ff0000')
 
@@ -711,6 +835,7 @@ ScreenManagement:
             Label:
                 id: output
                 font_size: 50
+                halign: "center"
                 text: root.outputText
                 color: utils.get_color_from_hex('#ff0000')
 
