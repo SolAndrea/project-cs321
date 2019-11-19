@@ -44,6 +44,7 @@ ScreenManagement:
                     Rectangle:
                         pos: self.pos
                         size: self.size
+                font_name: './program/uiElements/coolvetica.ttf'
 				font_size: 20
                 size_hint_y: None
                 height: 55
@@ -53,11 +54,12 @@ ScreenManagement:
             Widget:
             Button:
 				on_release: app.root.current = 'classifier'
-                background_normal: './program/miscImages/buttonGreen.PNG'
-                background_down: './program/miscImages/buttonBlue.PNG'
+                background_normal: './program/uiElements/genericButton.PNG'
+                background_down: './program/uiELements/genericButton_pressed.PNG'
 				text: '[b]Classify an image[/b]'
                 color: utils.get_color_from_hex('#2d862d')
                 markup: True
+                font_name: './program/uiElements/coolvetica.ttf'
 				font_size: 30
                 pos_hint: {'center_x': .5}
                 size: (400, 100)
@@ -68,11 +70,12 @@ ScreenManagement:
             Widget:
 			Button:
 				on_release: app.root.current = 'guide'
-                background_normal: './program/miscImages/buttonRed.PNG'
-                background_down: './program/miscImages/buttonOrange.PNG'
+                background_normal: './program/uiElements/genericButton.PNG'
+                background_down: './program/uiELements/genericButton_pressed.PNG'
 				text: '[b]Infographic[/b]'
                 color: utils.get_color_from_hex('#ff0000')
                 markup: True
+                font_name: './program/uiElements/coolvetica.ttf'
 				font_size: 30
                 pos_hint: {'center_x': .5}
                 size: (400, 100)
@@ -157,12 +160,14 @@ ScreenManagement:
 
 
                     Label:
+                        font_name: './program/uiElements/coolvetica.ttf'
                         text: 'This helpful guide will assist in identifying the ripenss of fruit.'
                         color:(0,0,0,0.8)
 
                     Widget:
 
                     Label:
+                        font_name: './program/uiElements/coolvetica.ttf'
                         text: 'Tomatoes'
                         font_size: 20
                         color:(0,0,0,0.8)
@@ -185,6 +190,7 @@ ScreenManagement:
                             Widget:
 
                             Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
                                 text: 'Not Ripe'
                                 color:(0,0,0,0.8)
 
@@ -199,11 +205,13 @@ ScreenManagement:
                                 size_hint: (None, None)
                                 pos_hint: {'center_x': .5}
                             Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
                                 text: 'Ripe'
                                 color:(0,0,0,0.8)
                     Label:
                         valign: 'center'
                         halign: 'center'
+                        font_name: './program/uiElements/coolvetica.ttf'
                         text: 'When not yet ripe, tomatoes are a bright green color.\nOver time, they turn bright red.\nAn ripe tomato will be slightly soft to the touch.'
                         color:(0,0,0,0.8)
 
@@ -225,6 +233,7 @@ ScreenManagement:
 
 
                     Label:
+                        font_name: './program/uiElements/coolvetica.ttf'
                         text: 'Bananas'
                         color:(0,0,0,0.8)
                         font_size: 20
@@ -244,6 +253,7 @@ ScreenManagement:
                                 size_hint: (None, None)
                                 pos_hint: {'center_x': .5}
                             Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
                                 text: 'Not Ripe'
                                 color:(0,0,0,0.8)
 
@@ -257,11 +267,13 @@ ScreenManagement:
                                 pos_hint: {'center_x': .5}
                                 size_hint: (None, None)
                             Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
                                 text: 'Ripe'
                                 color:(0,0,0,0.8)
                     Label:
                         valign: 'center'
                         halign: 'center'
+                        font_name: './program/uiElements/coolvetica.ttf'
                         text: 'When not yet ripe, banana are a dull green color.\nA ripe banana is a bright yellow color.\nAn overripe banana grows brown colored spots until it is completely brown.'
                         color:(0,0,0,0.8)
 
@@ -283,6 +295,7 @@ ScreenManagement:
 
 
                     Label:
+                        font_name: './program/uiElements/coolvetica.ttf'
                         text: 'Avocados'
                         color:(0,0,0,0.8)
                         font_size: 20
@@ -301,6 +314,7 @@ ScreenManagement:
                                 pos_hint: {'center_x': .5}
                             Widget:
                             Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
                                 text: '\n\nNot Ripe'
                                 markup: True
                                 color:(0,0,0,0.8)
@@ -317,6 +331,7 @@ ScreenManagement:
                                 size_hint: (None, None)
                             Widget:
                             Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
                                 text: '\n\nRipe'
                                 markup: True
                                 color:(0,0,0,0.8)
@@ -330,6 +345,7 @@ ScreenManagement:
                     Label:
                         valign: 'center'
                         halign: 'center'
+                        font_name: './program/uiElements/coolvetica.ttf'
                         text: 'When not yet ripe, avocados are green.\nOver time, they darken in color.\nAn ripe avocado will be a dark green color and be slightly soft to the touch.'
                         color:(0,0,0,0.8)
 
@@ -349,6 +365,7 @@ ScreenManagement:
                         padding: 1, 1
 
                     Label:
+                        font_name: './program/uiElements/coolvetica.ttf'
                         text: 'Strawberries'
                         font_size: 20
                         color:(0,0,0,0.8)
@@ -371,6 +388,7 @@ ScreenManagement:
                             Widget:
 
                             Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
                                 text: 'Not Ripe'
                                 color:(0,0,0,0.8)
 
@@ -385,11 +403,13 @@ ScreenManagement:
                                 size_hint: (None, None)
                                 pos_hint: {'center_x': .5}
                             Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
                                 text: 'Ripe'
                                 color:(0,0,0,0.8)
                     Label:
                         valign: 'center'
                         halign: 'center'
+                        font_name: './program/uiElements/coolvetica.ttf'
                         text: 'When not yet ripe, strawberries are a bright green color.\nOver time, they turn bright red.\nA ripe strawberry will be slightly firm to the touch.'
                         color:(0,0,0,0.8)
 
@@ -469,6 +489,7 @@ ScreenManagement:
                 background_down: './program/miscImages/buttonOrange.PNG'
                 color: utils.get_color_from_hex('#ff0000')
                 markup: True
+                font_name: './program/uiElements/coolvetica.ttf'
 				font_size: 20
                 pos_hint: {'center_x': .5}
                 size: (400, 100)
@@ -482,6 +503,7 @@ ScreenManagement:
 				text: '[b]Classify a banana image[/b]'
                 color: utils.get_color_from_hex('#ff6600')
                 markup: True
+                font_name: './program/uiElements/coolvetica.ttf'
 				font_size: 20
                 pos_hint: {'center_x': .5}
                 size: (400, 100)
@@ -496,6 +518,7 @@ ScreenManagement:
             	text: '[b]Classify an avocado image[/b]'
                 color: utils.get_color_from_hex('#2d862d')
                 markup: True
+                font_name: './program/uiElements/coolvetica.ttf'
             	font_size: 20
                 pos_hint: {'center_x': .5}
                 size: (400, 100)
@@ -508,6 +531,7 @@ ScreenManagement:
                 color: utils.get_color_from_hex('#ff0000')
             	text: '[b]  Classify a strawberry image[/b]'
                 markup: True
+                font_name: './program/uiElements/coolvetica.ttf'
             	font_size: 20
                 pos_hint: {'center_x': .5}
                 size: (400, 100)
@@ -589,6 +613,7 @@ ScreenManagement:
                 id:submission
                 on_press: root.pressed(self)
                 text: '[b]Submit[/b]'
+                font_name: './program/uiElements/coolvetica.ttf'
                 font_size: 50
                 background_normal: './program/miscImages/buttonRed.PNG'
                 background_down: './program/miscImages/buttonOrange.PNG'
@@ -681,6 +706,7 @@ ScreenManagement:
                 background_down: './program/miscImages/buttonOrange.PNG'
                 color: utils.get_color_from_hex('#ff0000')
                 markup: True
+                font_name: './program/uiElements/coolvetica.ttf'
 				font_size: 20
                 pos_hint: {'center_x': .5}
                 size: (400, 100)
@@ -761,6 +787,7 @@ ScreenManagement:
                 id:submission
                 on_press: root.pressed(self)
                 text: '[b]Submit[/b]'
+                font_name: './program/uiElements/coolvetica.ttf'
                 font_size: 50
                 background_normal: './program/miscImages/buttonRed.PNG'
                 background_down: './program/miscImages/buttonOrange.PNG'
@@ -846,6 +873,7 @@ ScreenManagement:
                 id:submission
                 on_press: root.pressed(self)
                 text: '[b]Submit[/b]'
+                font_name: './program/uiElements/coolvetica.ttf'
                 font_size: 50
                 background_normal: './program/miscImages/buttonRed.PNG'
                 background_down: './program/miscImages/buttonOrange.PNG'
