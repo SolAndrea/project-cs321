@@ -135,6 +135,7 @@ class BananasCla(GridLayout, Screen):
         file = open_file()
 		#old input parameter: "bananas_test.jpg"
 		#a try catch block to handle if the user didn't submit a picture after open_file() runs
+        self.ids.output_image.source = file
         try:
             result = get_colors(self, file, 'bananas.csv', 1)
         except AttributeError:
@@ -163,6 +164,7 @@ class TomatoesCla(GridLayout, Screen):
         file = open_file()
 		#old input parameter: "tomatoes_test.jpg"
 		#a try catch block to handle if the user didn't submit a picture after open_file() runs
+        self.ids.output_image.source = file
         try:
             result = get_colors(self, file, 'Tomatoes.csv', 2)
         except AttributeError:
@@ -190,6 +192,7 @@ class AvocadosCla(GridLayout, Screen):
         file = open_file()
 		#old input parameter: "avocados_test.jpg"
 		#a try catch block to handle if the user didn't submit a picture after open_file() runs
+        self.ids.output_image.source = file
         try:
             result = get_colors(self, file, 'Avocados.csv', 3)
         except AttributeError:
@@ -216,6 +219,7 @@ class StrawberrysCla(GridLayout, Screen):
         file = open_file()
 		#old input parameter: "strawberry_test.jpg"
 		#a try catch block to handle if the user didn't submit a picture after open_file() runs
+        self.ids.output_image.source = file
         try:
             result = get_colors(self, file, 'Strawberrys.csv', 4)
         except AttributeError:
