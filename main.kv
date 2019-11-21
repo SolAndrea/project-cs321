@@ -359,6 +359,7 @@ ScreenManagement:
                                 points: [200, self.y, 600, self.y]
 
 
+##Fruit Guide Box
                     Widget:
                         height: 4
                         spacing: 1, 1
@@ -366,11 +367,11 @@ ScreenManagement:
 
                     Label:
                         font_name: './program/uiElements/coolvetica.ttf'
-                        text: 'Strawberries'
+                        text: 'Mangoes'
                         font_size: 20
                         color:(0,0,0,0.8)
 
-                    #A fruit comparasion with nested box layouts (Tomatoes)
+                    #A fruit comparasion with nested box layouts
                     BoxLayout:
                         orientation: 'horizontal'
 
@@ -379,7 +380,7 @@ ScreenManagement:
                             pos_hint: {'y': 0.3}
 
                             Image:
-                                source: 'strawberry_nonRipe_test.jpg'
+                                source: './program/guideImages/unripeMango.png'
                                 keep_ratio: True
                                 size: (150, 150)
                                 size_hint: (None, None)
@@ -397,7 +398,7 @@ ScreenManagement:
                             pos_hint: {'y': 0.3}
 
                             Image:
-                                source: 'strawberry_test.jpg'
+                                source: './program/guideImages/ripeMango.jpg'
                                 keep_ratio: True
                                 size: (150, 150)
                                 size_hint: (None, None)
@@ -410,7 +411,263 @@ ScreenManagement:
                         valign: 'center'
                         halign: 'center'
                         font_name: './program/uiElements/coolvetica.ttf'
-                        text: 'When not yet ripe, strawberries are a bright green color.\nOver time, they turn bright red.\nA ripe strawberry will be slightly firm to the touch.'
+                        text: 'When not yet ripe, mangoes are green.\nOver time, they turn yellow.\nThe less green a mango is, the sweeter it will be.'
+                        color:(0,0,0,0.8)
+
+##lINE Seperator
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: utils.get_color_from_hex('#e6e6e6')
+                            Line:
+                                width:2
+                                points: [200, self.y, 600, self.y]
+
+##Fruit Guide Box
+                    Widget:
+                        height: 4
+                        spacing: 1, 1
+                        padding: 1, 1
+
+                    Label:
+                        font_name: './program/uiElements/coolvetica.ttf'
+                        text: 'Peppers'
+                        font_size: 20
+                        color:(0,0,0,0.8)
+
+                    #A fruit comparasion with nested box layouts
+                    BoxLayout:
+                        orientation: 'horizontal'
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: './program/guideImages/unripePepper.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+
+                            Widget:
+
+                            Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
+                                text: 'Not Ripe'
+                                color:(0,0,0,0.8)
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: './program/guideImages/ripePepper.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+                            Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
+                                text: 'Ripe'
+                                color:(0,0,0,0.8)
+                    Label:
+                        valign: 'center'
+                        halign: 'center'
+                        font_name: './program/uiElements/coolvetica.ttf'
+                        text: 'Green bell peppers are actually unripe.\nOver time, they shift from yellow, to orange, to red .\nTheir flavor changes between these stages.'
+                        color:(0,0,0,0.8)
+
+##lINE Seperator
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: utils.get_color_from_hex('#e6e6e6')
+                            Line:
+                                width:2
+                                points: [200, self.y, 600, self.y]
+
+##Fruit Guide Box
+                    Widget:
+                        height: 4
+                        spacing: 1, 1
+                        padding: 1, 1
+
+                    Label:
+                        font_name: './program/uiElements/coolvetica.ttf'
+                        text: 'Limes'
+                        font_size: 20
+                        color:(0,0,0,0.8)
+
+                    #A fruit comparasion with nested box layouts
+                    BoxLayout:
+                        orientation: 'horizontal'
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: './program/guideImages/unripeLime.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+
+                            Widget:
+
+                            Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
+                                text: 'Not Ripe'
+                                color:(0,0,0,0.8)
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: './program/guideImages/ripeLime.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+                            Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
+                                text: 'Ripe'
+                                color:(0,0,0,0.8)
+                    Label:
+                        valign: 'center'
+                        halign: 'center'
+                        font_name: './program/uiElements/coolvetica.ttf'
+                        text: 'Most limes seen in grocery stores are unripe.\nIf left on the tree, they ripen and turn yellow.\nLimes do not ripen once they are removed from the tree.'
+                        color:(0,0,0,0.8)
+
+##lINE Seperator
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: utils.get_color_from_hex('#e6e6e6')
+                            Line:
+                                width:2
+                                points: [200, self.y, 600, self.y]
+
+##Fruit Guide Box
+                    Widget:
+                        height: 4
+                        spacing: 1, 1
+                        padding: 1, 1
+
+                    Label:
+                        font_name: './program/uiElements/coolvetica.ttf'
+                        text: 'Peaches'
+                        font_size: 20
+                        color:(0,0,0,0.8)
+
+                    #A fruit comparasion with nested box layouts
+                    BoxLayout:
+                        orientation: 'horizontal'
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: './program/guideImages/unripePeach.png'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+
+                            Widget:
+
+                            Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
+                                text: 'Not Ripe'
+                                color:(0,0,0,0.8)
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: './program/guideImages/ripePeach.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+                            Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
+                                text: 'Ripe'
+                                color:(0,0,0,0.8)
+                    Label:
+                        valign: 'center'
+                        halign: 'center'
+                        font_name: './program/uiElements/coolvetica.ttf'
+                        text: 'When not yet ripe, peaches are green.\nOver time, they change to their peach color.\nWhen the green near the stem turns yellow, it is ripe.'
+                        color:(0,0,0,0.8)
+
+##lINE Seperator
+                    Widget:
+                        canvas:
+                            Color:
+                                rgba: utils.get_color_from_hex('#e6e6e6')
+                            Line:
+                                width:2
+                                points: [200, self.y, 600, self.y]
+
+##Fruit Guide Box
+                    Widget:
+                        height: 4
+                        spacing: 1, 1
+                        padding: 1, 1
+
+                    Label:
+                        font_name: './program/uiElements/coolvetica.ttf'
+                        text: 'Watermelon'
+                        font_size: 20
+                        color:(0,0,0,0.8)
+
+                    #A fruit comparasion with nested box layouts
+                    BoxLayout:
+                        orientation: 'horizontal'
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: './program/guideImages/unripeWatermelon.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+
+                            Widget:
+
+                            Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
+                                text: 'Not Ripe'
+                                color:(0,0,0,0.8)
+
+                        BoxLayout:
+                            orientation: 'vertical'
+                            pos_hint: {'y': 0.3}
+
+                            Image:
+                                source: './program/guideImages/ripeWatermelon.jpg'
+                                keep_ratio: True
+                                size: (150, 150)
+                                size_hint: (None, None)
+                                pos_hint: {'center_x': .5}
+                            Label:
+                                font_name: './program/uiElements/coolvetica.ttf'
+                                text: 'Ripe'
+                                color:(0,0,0,0.8)
+                    Label:
+                        valign: 'center'
+                        halign: 'center'
+                        font_name: './program/uiElements/coolvetica.ttf'
+                        text: 'A watermelon is ready to eat when its "ground spot" turns yellow .\nA ripe melon with give off a thud when tapped on the side.'
                         color:(0,0,0,0.8)
 
 
@@ -598,7 +855,7 @@ ScreenManagement:
 
             #spacing for the elements on the page
             #Widget:
-	    
+
 	    	Image:
 				id: output_image
                 source: ''
