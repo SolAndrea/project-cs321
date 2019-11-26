@@ -15,5 +15,8 @@ To classify a different picture of a banana:
 - Save picture in same directory
 - Open new2.py, and in line 55 change the file name to the new picture
 - Run on command line: python new2.py
+
+To show testing results:
+- Run on command line: python testing.py
    
     
