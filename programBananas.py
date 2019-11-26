@@ -28,7 +28,7 @@ def main():
 				globalfile.resultRIPE = tempDict[value]
 				tempDict = tempDict[value]
 			else:
-				print( "can't process input %s" % (count))
-				result = "?"
+				#print( "can't process input %s" % (count))
+				globalfile.resultRIPE = "?"
 				break
-		print ("entry%s = %s" % (count, globalfile.resultRIPE))
+		#print ("entry%s = %s" % (count, globalfile.resultRIPE))
